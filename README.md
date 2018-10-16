@@ -1,1 +1,1 @@
-This is the implementation of CheXNet based on pytorch.
+This is an implementation of CheXNet based on pytorch.
