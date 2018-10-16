@@ -6,7 +6,7 @@ import torch.backends.cudnn as cudnn
 from lib.data_loader import DataSet
 from lib.DensenetModels import DenseNet121
 from util.metrics import computeAUC
-from lib.densenet_local import densenet121
+#from lib.densenet_local import densenet121
 
 cudnn.benchmark = True
 CLASS_NAMES = [ 'Atelectasis', 'Cardiomegaly', 'Effusion', 'Infiltration', 'Mass', 'Nodule', 'Pneumonia','Pneumothorax', 'Consolidation', 'Edema', 'Emphysema', 'Fibrosis', 'Pleural_Thickening', 'Hernia']
