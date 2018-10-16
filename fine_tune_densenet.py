@@ -33,9 +33,9 @@ for epoch_index in range(cfg.epoch):
             img = img.cuda()
             label = label.cuda()
         pred = net(img)
-        loss = weight_loss(pred, label, weight, True)
-        #loss = bceloss(pred, label)
-        #loss = loss * 14 
+        #loss = weight_loss(pred, label, weight, True)
+        loss = bceloss(pred, label)
+        loss = loss * 14 
         opt.zero_grad()
         loss.backward()
         opt.step()
@@ -52,9 +52,9 @@ for epoch_index in range(cfg.epoch):
             img = img.cuda()
             label = label.cuda()
         pred = net(img)
-        loss = weight_loss(pred, label, weight, True)
-        #loss = bceloss(pred, label)
-        #loss = loss * 14 
+        #loss = weight_loss(pred, label, weight, True)
+        loss = bceloss(pred, label)
+        loss = loss * 14 
         loss_val += loss[0]
         pred_all = torch.cat((pred_all, pred), dim=0)
         gt_all = torch.cat((gt_all, label), dim=0)
@@ -70,9 +70,9 @@ for epoch_index in range(cfg.epoch):
     scheduler.step(loss_val)
     if loss_val < loss_min:
         loss_min = loss_val
-        torch.save({'epoch': epoch_index + 1, 'state_dict': net.state_dict(), 'best_loss': loss_min, 'optimizer' : opt.state_dict()}, 'densenet121_weight/m-' + str(epoch_index) + '.pth.tar')
+        torch.save({'epoch': epoch_index + 1, 'state_dict': net.state_dict(), 'best_loss': loss_min, 'optimizer' : opt.state_dict()}, 'densenet121/m-' + str(epoch_index) + '.pth.tar')
     elif epoch_index <= 30:
-        torch.save({'epoch': epoch_index + 1, 'state_dict': net.state_dict(), 'best_loss': loss_min, 'optimizer' : opt.state_dict()}, 'densenet121_weight/m-' + str(epoch_index) + '.pth.tar')
+        torch.save({'epoch': epoch_index + 1, 'state_dict': net.state_dict(), 'best_loss': loss_min, 'optimizer' : opt.state_dict()}, 'densenet121/m-' + str(epoch_index) + '.pth.tar')
 
 
 
