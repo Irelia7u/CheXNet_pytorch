@@ -9,6 +9,7 @@ This is an implementation of [**CheXNet**](https://arxiv.org/abs/1711.05225) bas
 - test_densenet.py
 ## Comparsion
 - For a fair comparison, we follow the publicly available data split list.
+
 |     Pathology      | Orignial CheXNet | Our Implemented |
 | :----------------: | :--------------: | :-------------: |
 |    Atelectasis     |      0.8094      |      0.7756     |
@@ -26,6 +27,7 @@ This is an implementation of [**CheXNet**](https://arxiv.org/abs/1711.05225) bas
 | Pleural Thickening |      0.8062      |      0.7693     |
 |       Hernia       |      0.9164      |      0.9314     |
 |         Avg        |      0.8414      |      0.8127     |
+
 ## Environment
 - python 3
 - pytorch 0.4.0
